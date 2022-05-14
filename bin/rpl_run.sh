@@ -36,7 +36,7 @@ TLIB_PATH=$PKG_DIR/tool
 TTLIB_PATH=$TT_DIR/tool
 ROCM_LIB_PATH=$ROOT_DIR/lib
 
-GFX=`/opt/rocm/bin/rocm_agent_enumerator | tail -1`
+GFX=`rocm_agent_enumerator | tail -1`
 
 SPM_COUNTERS_FILE="spm_counters.txt"
 
@@ -216,7 +216,7 @@ fi
 # setting ROCM_LIB_PATH
 set_rocm_lib_path() {
 
-  for ROCM_LIB_PATH in "$ROOT_DIR/lib" "$ROOT_DIR/lib64" ; do
+  for ROCM_LIB_PATH in "$ROOT_DIR/lib" "$ROOT_DIR/lib64" "`spack location -i hsakmt-roct@4.3.1%gcc@8.5.0`/lib64"; do
      if [ -f "$ROCM_LIB_PATH/libhsakmt.so.1" ]; then
         return 0
      fi
