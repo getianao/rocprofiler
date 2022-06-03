@@ -28,7 +28,7 @@ PKG_DIR=$(dirname $BIN_DIR)
 ROOT_DIR=$(dirname $PKG_DIR)
 TT_DIR=`spack location -i roctracer-dev@4.3.1%gcc@8.5.0`/roctracer
 RUN_DIR=`pwd`
-TMP_DIR="/tmp"
+TMP_DIR="/tmp/rocprof_${time_stamp}"
 DATA_DIR="rpl_data_${time_stamp}_$$"
 
 RPL_PATH=$PKG_DIR/lib
